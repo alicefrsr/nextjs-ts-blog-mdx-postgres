@@ -15,6 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { ModeToggle } from './ui/mode-toggle';
 
 const posts: { title: string; href: string; description: string }[] = [
   {
@@ -50,22 +51,25 @@ const posts: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function MainNav() {
+export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50'
+        'flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50',
+        className
       )}
     >
       <Link href={'/'}>
+        {/* LOGO -- LEFT */}
         <div className='flex items-center justify-between w-32 '>
-          {/* LOGO */}
           <Icons.logo className='h-6 w-6' />
           <p>Huggabug</p>
         </div>
       </Link>
+      {/* MAIN MENU -- CENTER */}
       <NavigationMenu>
         <NavigationMenuList>
+          {/* FEATURED ITEM WITH SUBITEMS */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -100,6 +104,7 @@ export function MainNav() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
+          {/* ITEM WITH SUBITEMS */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -116,6 +121,7 @@ export function MainNav() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
+          {/* ITEM */}
           <NavigationMenuItem>
             <Link href='/about' legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -123,29 +129,15 @@ export function MainNav() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          {/* <NavigationMenuItem>
-            <Link href='/about' legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                About
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href='/about' legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                About
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem> */}
-          <div className='flex items-center justify-between w-20'>
-            {/* <ModeToggle /> */}
-            {/* RSS */}
-            <Link href='/rss'>
-              <Icons.rss className='h-6 w-6' />
-            </Link>
-          </div>
         </NavigationMenuList>
       </NavigationMenu>
+      {/* TOGGLE + RSS -- RIGHT */}
+      <div className='flex items-center justify-between w-20'>
+        <ModeToggle />
+        <Link href='/rss'>
+          <Icons.rss className='h-6 w-6' />
+        </Link>
+      </div>
     </div>
   );
 }
