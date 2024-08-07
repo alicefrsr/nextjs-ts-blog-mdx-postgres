@@ -4,6 +4,7 @@ export const categories = [
   'css',
   'accessibility',
   'seo',
+  'next.js',
 ];
 
 export const popularPosts = [

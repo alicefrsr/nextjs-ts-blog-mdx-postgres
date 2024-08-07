@@ -18,14 +18,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`$(inter.className) min-h-screen flex flex-col`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
-          <main>{children}</main>
+          <main
+          // className='flex-1' // OR footer gets className='mt-auto'
+          >
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

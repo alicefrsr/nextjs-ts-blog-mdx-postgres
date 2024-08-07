@@ -9,18 +9,18 @@ export default function Home() {
     <Container>
       <MainNav />
       <main className='flex flex-col items-start justify-evenly mt-16 md:flex-row'>
-        <div>
+        <section>
           <LatestPosts />
-        </div>
+        </section>
         <div className='h-screen'>
-          <div>
+          <section>
             <h2 className='font-bold mb-4'>TOP CATEGORIES</h2>
             <TopCategories />
-          </div>
-          <div className='mt-10 sticky top-0'>
+          </section>
+          <section className='mt-10 sticky top-0'>
             <h2 className='font-bold mb-4'>POPULAR POSTS</h2>
             <PopularPosts />
-          </div>
+          </section>
         </div>
       </main>
     </Container>

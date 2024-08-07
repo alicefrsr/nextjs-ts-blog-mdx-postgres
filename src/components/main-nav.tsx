@@ -16,40 +16,42 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { ModeToggle } from './ui/mode-toggle';
+import { POSTS } from '@/lib/constants';
 
-const posts: { title: string; href: string; description: string }[] = [
-  {
-    title: 'React',
-    href: '/blog/react',
-    description: 'Stuff about React.',
-  },
-  {
-    title: 'Next.js',
-    href: '/blog/next-js',
-    description: 'Stuff about Next.js.',
-  },
-  {
-    title: 'CSS',
-    href: '/blog/css',
-    description: 'Stuff about css.',
-  },
-  {
-    title: 'Javacript',
-    href: '/blog/javacript',
-    description: 'Stuff about Javascript.',
-  },
-  {
-    title: 'SEO',
-    href: '/blog/seo',
-    description: 'Stuff about SEO.',
-  },
+//REFACTORED
+// const posts: { title: string; href: string; description: string }[] = [
+//   {
+//     title: 'React',
+//     href: '/blog/react',
+//     description: 'Stuff about React.',
+//   },
+//   {
+//     title: 'Next.js',
+//     href: '/blog/next-js',
+//     description: 'Stuff about Next.js.',
+//   },
+//   {
+//     title: 'CSS',
+//     href: '/blog/css',
+//     description: 'Stuff about css.',
+//   },
+//   {
+//     title: 'Javacript',
+//     href: '/blog/javacript',
+//     description: 'Stuff about Javascript.',
+//   },
+//   {
+//     title: 'SEO',
+//     href: '/blog/seo',
+//     description: 'Stuff about SEO.',
+//   },
 
-  {
-    title: 'Random',
-    href: '/blog/random',
-    description: 'Random stuff.',
-  },
-];
+//   {
+//     title: 'Random',
+//     href: '/blog/random',
+//     description: 'Random stuff.',
+//   },
+// ];
 
 export function MainNav({ className }: { className?: string }) {
   return (
@@ -109,7 +111,7 @@ export function MainNav({ className }: { className?: string }) {
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] '>
-                {posts.map((post) => (
+                {POSTS.map((post) => (
                   <ListItem
                     key={post.title}
                     title={post.title}
