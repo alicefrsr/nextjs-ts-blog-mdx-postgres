@@ -2,15 +2,16 @@ import Header from '@/components/header';
 import { formatDate, getBlogPosts } from '../../utils';
 import Container from '@/components/Container';
 import { BreadcrumbWithCustomSeparator } from '@/components/breadcrumb';
+import { notFound } from 'next/navigation';
+import { CustomMDX } from '@/components/mdx';
 
 export default function SlugPage({
   params,
 }: {
-  category: string;
-  slug: string;
+  params: { category: string; slug: string };
 }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
-  console.log(post);
+  // console.log(post);
 
   if (!post) {
     notFound();
@@ -23,7 +24,7 @@ export default function SlugPage({
             category={post?.metadata.category}
             slug={post?.slug}
           />
-          <h1 className=' font-semibold text-2xl tracking-tighter mt-4'>
+          <h1 className='font-semibold text-2xl tracking-tighter mt-4'>
             {post?.metadata.title}
           </h1>
           <div className='flex justify-between items-center mt-2 mb-4 text-sm'>
@@ -35,7 +36,7 @@ export default function SlugPage({
       </Header>
       <Container>
         <article className='prose'>
-          <CustomMDX />
+          <CustomMDX source={post.content} />
         </article>
       </Container>
     </>

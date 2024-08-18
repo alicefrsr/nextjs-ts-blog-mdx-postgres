@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export default function LatestPosts() {
-  let latestPosts = getBlogPosts();
+  const latestPosts = getBlogPosts();
   const sortedPosts = latestPosts.sort((a, b) => {
     if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
       return -1;
@@ -13,7 +13,9 @@ export default function LatestPosts() {
 
   return (
     <>
-      <h1>Recently published</h1>
+      <h1 className='inline-block font-heading text-4xl tracking-tight lg:text-5xl'>
+        Recently published
+      </h1>
       {sortedPosts.map((post) => (
         <article key={post.slug} className='text-wrap max-w-md my-10'>
           <Link href={'#'}>

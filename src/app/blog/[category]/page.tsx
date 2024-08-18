@@ -5,6 +5,7 @@ import { getBlogPosts } from '../utils';
 import CardCategory from '@/components/card-category';
 import Container from '@/components/Container';
 import Header from '@/components/header';
+import { notFound } from 'next/navigation';
 
 export default function Page({ params }: { params: { category: string } }) {
   let posts = getBlogPosts().filter(
